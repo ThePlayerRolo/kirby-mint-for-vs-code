@@ -1,0 +1,25 @@
+{
+  "name": "kirby-mint-for-vs-code",
+  "displayName": "Kirby Mint For VS Code",
+  "description": "Allows you to view Kirby Mint .mints files easily in VS Code!",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.107.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "mints",
+      "aliases": ["Mint", "mints"],
+      "extensions": [".mints"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "mints",
+      "scopeName": "source.mints",
+      "path": "./syntaxes/mints.tmLanguage.json"
+    }]
+  }
+}
