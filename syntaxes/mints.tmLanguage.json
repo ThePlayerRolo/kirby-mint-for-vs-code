@@ -17,6 +17,9 @@
 		},
 		{
 			"include": "#strings"
+		},
+		{
+			"include": "#functions"
 		}
 	],
 	"repository": {
@@ -24,7 +27,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.mints",
-					"match": "\\b(module|pod|enum|const|this|ref|void|class|utility)\\b"
+					"match": "\\b(module|pod|enum|const|this|ref|void|class|utility|partial)\\b"
 				},
 				{
 					"name": "keyword.control.mints",
@@ -88,6 +91,27 @@
 				{
 					"match": "([.-9A-Z_a-z]+);$",
 					"name": "variable.name"
+				}
+			]
+		},
+		"functions": {
+			"name": "support.function.mints",
+			"patterns": [
+				{
+					"match": "^.*:$",
+					"name":"support.function"
+				},
+				{
+					"match": "(\\w+(\\.|$))+",
+					"name":"support.class"
+				},
+				{
+					"match": "[A-Za-z0-9]+\\(.*\\)",
+					"name":"support.function"
+				},
+				{
+					"match": "this\\.[A-Za-z]+",
+					"name":"support.property-value"
 				}
 			]
 		}
