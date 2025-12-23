@@ -13,6 +13,9 @@
 			"include": "#constants"
 		},
 		{
+			"include": "#variables"
+		},
+		{
 			"include": "#strings"
 		}
 	],
@@ -21,11 +24,15 @@
 			"patterns": [
 				{
 					"name": "keyword.control.mints",
-					"match": "\\b(module|pod|enum|const|this|ref|void)\\b"
+					"match": "\\b(module|pod|enum|const|this|ref|void|class|utility)\\b"
 				},
 				{
 					"name": "keyword.control.mints",
-					"match": "\\b(stsra4|fenter|ldfrsr|callnt|nop|ldsrzr|ldsrbt|ldsrc4|ldsrca|ldsrsr|ldsrfz|ldfrsr|ldfs2|ldfs3|ldfrfr|ldsrsa|ldsrsv|ldsra4|ldofa4|ldsrsz|ldsrfa|ldtype|stsrsr|stofa4|stsvsr|addi32|subi32|muls32|divs32|mods32|mulu32|divu32|modu32|inci32|deci32|negs32|addf32|subf32|mulf32|divf32|incf32|decf32|negf|lts32|le32|ltu32|leu32|eqi32|nei32|ltf32|lef32|eqf32|nef32|ltcmp|lecmp|eqbool|nebool|eqptr|neptr|eqstr|nestr|eqwstr|newstr|astidx|andi32|ori32|xori32|nti32|ntbool|slli32|slri32|jmp|jmppos|jmpneg|fleave|fret|call|callnv|callnt|yield|mcopy|mzeros|sppsh|sppshz|sppop|addofs|ldaddr|arpshz|aridx|arpop|arcopy|wapshz|waidx|wapop|cts32f|cts32u|ctu32s|ctu32f|ctf32s|ctf32u|obnew|obnewd|obflag|obdel|enmstr)\\b"
+					"match": "\\b(stsra4|fenter|ldfrsr|callnt|nop|ldsrzr|ldsrbt|ldsrc4|ldsrca|ldsrsr|ldsrfz|ldfrsr|ldfs2|ldfs3f|ldfrfr|ldsrsa|ldsrsv|ldsra4|ldofa4|ldsrsz|ldsrfa|ldtype|stsrsr|stofa4|stsvsr|addi32|subi32|muls32|divs32|mods32|mulu32|divu32|modu32|inci32|deci32|negs32|addf32|subf32|mulf32|divf32|incf32|decf32|negf|lts32|le32|ltu32|leu32|eqi32|nei32|ltf32|lef32|eqf32|nef32|ltcmp|lecmp|eqbool|nebool|eqptr|neptr|eqstr|nestr|eqwstr|newstr|astidx|andi32|ori32|xori32|nti32|ntbool|slli32|slri32|jmp|jmppos|jmpneg|fleave|fret|call|callnv|callnt|yield|mcopy|mzeros|sppsh|sppshz|sppop|addofs|ldaddr|arpshz|aridx|arpop|arcopy|wapshz|waidx|wapop|cts32f|cts32u|ctu32s|ctu32f|ctf32s|ctf32u|obnew|obnewd|obflag|obdel|enmstr)\\b"
+				},
+				{
+					"name": "keyword.operator",
+					"match": "\\br([0-9]+)\\b"
 				}
 			]
 		},
@@ -59,8 +66,28 @@
 			"name": "constant.mints",
 			"patterns": [
 				{
-					"name": "constant.language",
-					"match": "\\b(int|string|bool|float|uint)\\b"
+					"match": "\\b(int|string|bool|float|uint)\\b",
+					"captures": {
+						"1": {
+							"name": "constant.language"
+						}
+					}
+				}, 
+				{
+					"name": "constant.numeric",
+					"match": "\\b((?:0x[0-9A-Fa-f]+)|(?:-?[0-9]+))\\b"
+				}, {
+					"name": "constant.numeric",
+					"match": "\\b(-?[0-9]+(?:\\.[0-9]+)?f?)\\b"
+				}
+			]
+		},
+		"variables": {
+			"name":"variable.mints",
+			"patterns": [
+				{
+					"match": "([.-9A-Z_a-z]+);$",
+					"name": "variable.name"
 				}
 			]
 		}
